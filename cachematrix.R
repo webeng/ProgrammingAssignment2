@@ -4,9 +4,9 @@
 ## Write a short comment describing this function
 ## This function creates a special "matrix" object that can cache its inverse. It has a matrix x as an input
 ## there are also 4 other function within makeCacheMatrix that are used to manipulate the matrix x
-## function "set" assigns a new value to x
+## function "set" assigns a new value y to x and set m to empty == null
 ## function "get" returns the current matrix
-## function "setsolve" sets  m
+## function "setsolve" has a variable "solve" as a parameter and assigns it to  m
 ## function "getsolve" returns m
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL  
@@ -36,7 +36,8 @@ cacheSolve <- function(x, ...) {
   x$setsolve(m)
   m
 }
-
+## hilbert is a squared with entries being the unit fractions 1/n
+## hilbert(n) creates a n x n matrix with unit fraction in each cell i.e: m[0,0] = 1/1, m[0,1] = 1/2, m[0,2] = 1/3 and so on
 hilbert <- function(n) { i <- 1:n; 1 / outer(i - 1, i, "+") }
 
 m <- makeCacheMatrix(hilbert(8))
